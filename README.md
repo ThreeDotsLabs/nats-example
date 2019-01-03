@@ -5,6 +5,7 @@ This is an example Go project for running local development environment. It feat
 * Hot code reloading with [reflex](https://github.com/cespare/reflex)
 * Running multiple Docker containers with [Docker Compose](https://docs.docker.com/compose)
 * Using [Go Modules](https://github.com/golang/go/wiki/Modules) for managing dependencies
+* [Publisher](publisher/main.go) and [Subscriber](subscriber/main.go) services
 * Communication over [NATS](https://nats.io/) between two services
 
 Read more in our blog post: [Go Docker dev environment with Go Modules and live code reloading](https://threedots.tech/post/go-docker-dev-environment-with-go-modules-and-live-code-reloading/)
