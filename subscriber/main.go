@@ -32,8 +32,10 @@ func startSubscriber(natsURL, clusterID, topic string) error {
 
 	subscriber, err := nats.NewStreamingSubscriber(
 		nats.StreamingSubscriberConfig{
-			ClusterID: clusterID,
-			ClientID:  "subscriber",
+			ClusterID:   clusterID,
+			ClientID:    "subscriber",
+			QueueGroup:  "example-group",
+			DurableName: "example-durable",
 			StanOptions: []stan.Option{
 				stan.NatsURL(natsURL),
 			},
