@@ -10,6 +10,8 @@ This is an example Go project for running local development environment. It feat
 
 Read more in our blog post: [Go Docker dev environment with Go Modules and live code reloading](https://threedots.tech/post/go-docker-dev-environment-with-go-modules-and-live-code-reloading/)
 
+[![asciicast](https://asciinema.org/a/kas6dYKpMzyubpCmW9aOjnBIu.svg)](https://asciinema.org/a/kas6dYKpMzyubpCmW9aOjnBIu)
+
 ## Running
 
 To start the services, simply run:
