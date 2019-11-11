@@ -10,9 +10,9 @@ import (
 	"time"
 
 	"github.com/ThreeDotsLabs/watermill"
+	"github.com/ThreeDotsLabs/watermill-nats/pkg/nats"
 	"github.com/ThreeDotsLabs/watermill/message"
-	"github.com/ThreeDotsLabs/watermill/message/infrastructure/nats"
-	"github.com/nats-io/go-nats-streaming"
+	"github.com/nats-io/stan.go"
 	"github.com/oklog/ulid"
 )
 
