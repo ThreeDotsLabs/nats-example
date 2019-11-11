@@ -5,7 +5,6 @@ services:
     build: .
     volumes:
       - ./publisher:/app
-      - $GOPATH/pkg/mod/cache:/go/pkg/mod/cache
     working_dir: /app
     env_file:
       - .env
@@ -18,11 +17,10 @@ services:
     build: .
     volumes:
       - ./subscriber:/app
-      - $GOPATH/pkg/mod/cache:/go/pkg/mod/cache
     working_dir: /app
     env_file:
       - .env
 
   nats:
-    image: nats-streaming:0.11.2
+    image: nats-streaming:0.16.2
     restart: on-failure

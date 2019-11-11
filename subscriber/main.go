@@ -1,14 +1,15 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 
 	"github.com/ThreeDotsLabs/watermill"
+	"github.com/ThreeDotsLabs/watermill-nats/pkg/nats"
 	"github.com/ThreeDotsLabs/watermill/message"
-	"github.com/ThreeDotsLabs/watermill/message/infrastructure/nats"
 	"github.com/ThreeDotsLabs/watermill/message/router/middleware"
-	"github.com/nats-io/go-nats-streaming"
+	"github.com/nats-io/stan.go"
 )
 
 func main() {
@@ -49,22 +50,19 @@ func startSubscriber(natsURL, clusterID, topic string) error {
 
 	router.AddMiddleware(middleware.Recoverer)
 
-	err = router.AddNoPublisherHandler(
+	router.AddNoPublisherHandler(
 		"messages_handler",
 		topic,
 		subscriber,
 		handler,
 	)
-	if err != nil {
-		return err
-	}
 
 	log.Print("Subscribed for messages")
 
-	return router.Run()
+	return router.Run(context.Background())
 }
 
-func handler(msg *message.Message) ([]*message.Message, error) {
+func handler(msg *message.Message) error {
 	log.Printf("received message: %s, payload: %s", msg.UUID, string(msg.Payload))
-	return nil, nil
+	return nil
 }
